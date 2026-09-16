@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- iOS Home Screen Icon -->
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- Android Theme Color -->
+    <meta name="theme-color" content="#E8A336" />
+
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Radiance Beauty Parlour</title>
+  </head>
+
+  <body class="bg-gray-100">
+    <div id="root"></div>
+
+    <!-- Vite Entry -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then(() => {
+              console.log("Service Worker Registered");
+            })
+            .catch((err) => {
+              console.error("Service Worker Registration Failed:", err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
